@@ -1,0 +1,96 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.titlebar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 80px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f8f8;
+  -webkit-app-region: drag;
+  flex-shrink: 0;
+}
+
+.titlebar-left,
+.titlebar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-title {
+  font-family: monospace;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  padding: 4px 6px;
+  border-radius: 3px;
+}
+
+.icon-btn:hover { background: #eee; }
+
+.token-counter {
+  font-family: monospace;
+  font-size: 11px;
+  color: #999;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.panel-tree {
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-divider {
+  width: 4px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  background: #e0e0e0;
+  transition: background 0.15s;
+}
+
+.panel-divider:hover, .panel-divider:active {
+  background: #1a73e8;
+}
+
+.panel-conversation {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.panel-thread {
+  width: 300px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

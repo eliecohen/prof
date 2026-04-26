@@ -1,0 +1,35 @@
+{
+  "name": "little-professor",
+  "version": "0.1.0",
+  "description": "My Little Professor — local AI learning companion",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "VITE_DEV=1 electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^29.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.0"
+  },
+  "build": {
+    "appId": "com.littleprofessor.app",
+    "productName": "My Little Professor",
+    "mac": {
+      "category": "public.app-category.education"
+    },
+    "extraResources": [
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": ["**/*", "!node_modules/**"]
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js"
+    ]
+  }
+}

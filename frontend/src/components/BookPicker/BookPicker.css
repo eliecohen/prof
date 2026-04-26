@@ -1,0 +1,196 @@
+.bookpicker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.bookpicker {
+  background: white;
+  border-radius: 10px;
+  width: 460px;
+  max-height: 580px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.bookpicker-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.bookpicker-header em { color: #1a73e8; font-style: normal; }
+
+.bookpicker-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.bookpicker-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bookpicker-status {
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.bookpicker-status.error { color: #c0392b; }
+
+.bookpicker-search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.bookpicker-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.bookpicker-btn.primary {
+  background: #1a73e8;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+}
+
+.bookpicker-btn.primary:hover:not(:disabled) { background: #1557b0; }
+.bookpicker-btn.primary:disabled { opacity: 0.4; cursor: default; }
+
+.bookpicker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bookpicker-book {
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.bookpicker-book:hover { background: #f5f8ff; border-color: #1a73e8; }
+
+.book-title { font-size: 13px; font-weight: 500; color: #222; }
+.book-meta { font-size: 11px; color: #888; margin-top: 2px; }
+
+.bookpicker-btn.more-btn {
+  width: 100%;
+  margin-top: 6px;
+  background: none;
+  border: 1px dashed #ccc;
+  color: #888;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.bookpicker-btn.more-btn:hover:not(:disabled) { background: #f5f5f5; color: #555; border-color: #aaa; }
+.bookpicker-btn.more-btn:disabled { opacity: 0.5; cursor: default; }
+
+.bookpicker-back {
+  font-size: 12px;
+  color: #1a73e8;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.book-selected-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.toc-options {
+  margin-bottom: 10px;
+}
+
+.toc-option-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toc-option-label input { accent-color: #1a73e8; }
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toc-chapter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.toc-chapter-label input { accent-color: #1a73e8; }
+
+.toc-sections {
+  margin-left: 24px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc-section {
+  font-size: 12px;
+  color: #555;
+  padding: 2px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toc-section.generated { color: #888; font-style: italic; }
+
+.generated-badge {
+  font-size: 10px;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-style: normal;
+}
