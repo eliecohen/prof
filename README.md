@@ -1,81 +1,52 @@
-# Learning Agent - Prototype
+# My Little Professor
 
-Un agent d'apprentissage interactif qui challenge la curiosité et développe la pensée profonde.
+A local Electron desktop app that acts as a Socratic learning companion. It organizes your learning into a topic tree and guides you through each subject with Socratic dialogue — asking questions, adapting to your level, and building real understanding.
 
-## Philosophie
+## Philosophy
 
-Plutôt que de "dumper" du savoir, cet agent:
-- Pose des questions qui forcent à penser
-- Détecte ton niveau et s'adapte
-- Challenge sans être condescendant  
-- Rend l'apprentissage actif, pas passif
-- Marche pour tous les domaines (sciences, philo, tech, etc.)
+Rather than dumping information, the Professor:
+- Asks questions that force you to think
+- Detects your level and adapts
+- Challenges without being condescending
+- Makes learning active, not passive
+- Works for any domain (science, philosophy, tech, history, etc.)
 
-## Installation
+## Features
+
+- **Topic tree** — organize learning into subjects, chapters, and sections
+- **Socratic conversations** — the Prof opens each topic with a question, not a lecture
+- **Book import** — search real books, pick chapters, build a tree from the TOC automatically
+- **Threads** — click any paragraph to open a clarification thread
+- **Multi-provider** — works with Anthropic (Claude) or any OpenAI-compatible API (LM Studio, Ollama, etc.)
+- **Persistent memory** — conversations saved locally in SQLite
+
+## Stack
+
+- **Frontend** — React + Vite
+- **Backend** — Node.js / Express + SQLite (better-sqlite3)
+- **Desktop** — Electron
+- **AI** — Anthropic SDK + OpenAI-compatible SDK
+
+## Getting Started
 
 ```bash
-# Installer les dépendances
-pip install -r requirements.txt
+# Install dependencies
+cd backend && npm install
+cd ../frontend && npm install
+cd ../electron && npm install
 
-# Créer le fichier .env avec ta clé API
-cp .env.example .env
-# Puis éditer .env et ajouter: ANTHROPIC_API_KEY=ta_clé
+# Start everything
+cd ..
+./start.sh
 ```
 
-## Utilisation
+On first launch, open the settings (⚙️) and enter your API key and name.
 
-```bash
-./run.sh
-```
-
-**Commandes:**
-- `quit` - Quitter (sauvegarde automatique)
-- `reset` - Recommencer la conversation
-- `debug` - Voir l'état interne
-- `Ctrl+C` - Quitter avec sauvegarde
-
-**Fonctionnalités:**
-- 🧠 **Mémoire persistante** - Se souvient entre les sessions
-- 🔄 **Reprise de conversation** - "La dernière fois on parlait de..."
-- ❓ **Questions non répondues** - Se souvient si tu as quitté en pleine discussion
-- 💾 **Sauvegarde automatique** - Même avec Ctrl+C
-
-## Architecture
+## Project Structure
 
 ```
-agent.py         - Cerveau: prompt système + logique de réponse
-conversation.py  - Gestion de l'historique du dialogue
-memory.py        - Mémoire: profil apprenant + graphe de connaissances
-main.py          - Interface CLI
-```
-
-## Mémoire persistante
-
-Toutes les sessions sont sauvegardées dans `.memory/`:
-- `profile.json` - Ton profil d'apprenant (style, préférences)
-- `concepts.json` - Graphe de connaissances (ce que tu as exploré)
-- `sessions.jsonl` - Historique de toutes les sessions
-
-## Prochaines étapes
-
-- [x] Mémoire persistante (entre sessions)
-- [x] Reprise de conversation
-- [ ] Interface voix (Deepgram + ElevenLabs)
-- [ ] Visuel (arbre conceptuel + flowchart)
-- [ ] Meilleure détection d'engagement
-- [ ] LLM extrait automatiquement les concepts
-
-## Exemple d'interaction
-
-```
-🧠 Agent: Salut! Qu'est-ce qui t'intéresse aujourd'hui?
-
-👤 Toi: Les LLM
-
-🧠 Agent: OK! Tu utilises ChatGPT ou Claude?
-
-👤 Toi: Oui, j'ai même lu pas mal sur le sujet
-
-🧠 Agent: Parfait, on saute les bases alors. 
-         Dis-moi - qu'est-ce qui t'a le plus surpris?
+backend/    — Express API, SQLite DB, LLM client
+frontend/   — React UI (tree, conversation, book picker)
+electron/   — Electron shell
+start.sh    — Start backend + frontend + Electron
 ```
